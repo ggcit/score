@@ -177,7 +177,7 @@
 
 <script>
 // 구글 스프레드시트 웹 배포 URL
-const URL = "https://script.google.com/macros/s/AKfycbw59KsxBvb6fGdjGIA-4AAQqxoTEEWwk8t1G8y0NZFzkhMeIks6EPZiEJ2Y3-28H0O1/exec";
+const URL = "https://script.google.com/macros/s/AKfycbyzLNZeIHpW9XFpIgg8Mx09xqNCnJUujlYnp5ofS_DfIE7sdhQBiAA2ut-ghRZ-YDkp/exec";
 
 const 항목목록 = [
   { 대: "전략 및 방법론(16)", rowspan: 4, 소: "사업이해도", 배점: 4, 설명: "사업수행계획이 사업의 목표 및 특성에 부합하게 구체적이고 적절한지 평가" },
@@ -335,7 +335,11 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
     .then(() => {
       return fetch(URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        mode: "cors",
         body: JSON.stringify(formData)
       });
     })
