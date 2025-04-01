@@ -262,20 +262,23 @@ function saveToPDF() {
 
   const element = document.body;
   const opt = {
-    margin: 0,
+    margin: [10, 10, 10, 10],  // [top, right, bottom, left] 여백 설정
     filename: `저장_평가표_${proposalName}_${evaluator}.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { 
       scale: 2,
       useCORS: true,
       logging: false,
-      letterRendering: true
+      letterRendering: true,
+      scrollY: 0,
+      windowWidth: 800  // 고정된 너비 설정
     },
     jsPDF: { 
       unit: 'mm', 
       format: 'a4', 
       orientation: 'portrait',
-      compress: true
+      compress: true,
+      hotfixes: ["px_scaling"]  // 크롬에서의 스케일링 문제 해결
     },
     pagebreak: { mode: 'avoid-all' }
   };
@@ -303,20 +306,23 @@ document.getElementById("scoreForm").addEventListener("submit", function(e) {
 
   // PDF 저장 옵션 설정
   const opt = {
-    margin: 0,
+    margin: [10, 10, 10, 10],  // [top, right, bottom, left] 여백 설정
     filename: `저장_평가표_${proposalName}_${evaluator}.pdf`,
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { 
       scale: 2,
       useCORS: true,
       logging: false,
-      letterRendering: true
+      letterRendering: true,
+      scrollY: 0,
+      windowWidth: 800  // 고정된 너비 설정
     },
     jsPDF: { 
       unit: 'mm', 
       format: 'a4', 
       orientation: 'portrait',
-      compress: true
+      compress: true,
+      hotfixes: ["px_scaling"]  // 크롬에서의 스케일링 문제 해결
     },
     pagebreak: { mode: 'avoid-all' }
   };
